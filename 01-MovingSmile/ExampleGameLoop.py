@@ -3,6 +3,7 @@
 # Often programmers use code that other developers have written.
 import pygame
 import sys
+import math
 
 # Let's turn pygame ON
 pygame.init()
@@ -48,14 +49,21 @@ while True:
 
     # TODO 02: Try to draw a circle (any size, any color, anywhere)
     # pygame.draw.circle(screen, color, pos, radius, width(optional)  )
-    pygame.draw.circle(screen, pygame.Color("Red"), (320, 240), 25)
+    pygame.draw.circle(screen, (0,0,0), (screen.get_width()/2, screen.get_height()/2), 250)
     # uses capital C on color because it's creating a class object, which is a fancy way of saying that it is a special type of variable that has its own properties and methods. In this case, the color class has properties like red, green, blue, and alpha (transparency), and methods like get_at() and set_at().
     # TODO 03: Try to draw a red circle in the middle of the screen with a radius 100
     # pygame.draw.circle(screen, color, pos, radius, width(optional)  )
-
+    pygame.draw.circle(screen, pygame.Color("White"), (190, 150), 15)
+    pygame.draw.circle(screen, pygame.Color("White"), (450, 150), 15)
+    pygame.draw.circle(screen, pygame.Color("Red"), (190, 150), 5)
+    pygame.draw.circle(screen, pygame.Color("Red"), (450, 150), 5)
     # TODO 04: Try to draw a yellow circle with the center exactly in the lower left corner of the screen, radius 10
     # pygame.draw.circle(screen, color, pos, radius, width(optional)  )
-
+    for i in range(10):
+        pygame.draw.circle(screen, pygame.Color("White"), (190 + ((i + 0.5) * 26), 300), 15)
+        pygame.draw.circle(screen, pygame.Color("White"), (190 + ((i + 0.5) * 26), 345), 15)
+        pygame.draw.rect(screen, pygame.Color("Black"), (170,270,300,30))
+        pygame.draw.rect(screen, pygame.Color("Black"), (170,345,300,30))
     # This will make sure that things appear on our screen, without this
     # update, everything we do will not be visible!
     # notice how this statement is still inside of the first while loop, but
