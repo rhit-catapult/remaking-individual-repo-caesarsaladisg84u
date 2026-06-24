@@ -59,11 +59,12 @@ while True:
     pygame.draw.circle(screen, pygame.Color("Red"), (450, 150), 5)
     # TODO 04: Try to draw a yellow circle with the center exactly in the lower left corner of the screen, radius 10
     # pygame.draw.circle(screen, color, pos, radius, width(optional)  )
+    pygame.draw.rect(screen,(200,0,0), (190,300,260,65))
     for i in range(10):
         pygame.draw.circle(screen, pygame.Color("White"), (190 + ((i + 0.5) * 26), 300), 15)
         pygame.draw.circle(screen, pygame.Color("White"), (190 + ((i + 0.5) * 26), 345), 15)
-        pygame.draw.rect(screen, pygame.Color("Black"), (170,270,300,30))
-        pygame.draw.rect(screen, pygame.Color("Black"), (170,345,300,30))
+    pygame.draw.rect(screen, pygame.Color("Black"), (170,270,300,30))
+    pygame.draw.rect(screen, pygame.Color("Black"), (170,345,300,30))
     # This will make sure that things appear on our screen, without this
     # update, everything we do will not be visible!
     # notice how this statement is still inside of the first while loop, but
