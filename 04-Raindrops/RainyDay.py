@@ -9,12 +9,15 @@ class Raindrop:
         #^ __init__ is a constructor, which is a special method that is called when an object is created. It initializes the object's attributes. In this case, it initializes a Raindrop object with its screen, x and y position, and speed.
         #^constructor, passes in self because it is a method of the class, and screen, x, y because those are needed to create a raindrop
         """ Creates a Raindrop sprite that travels down at a random speed. """
-        # TODO 8: Initialize this Raindrop, as follows:
+        # Done 8: Initialize this Raindrop, as follows:
         #     - Store the screen.
         #     - Set the initial position of the Raindrop to x and y.
         #     - Set the initial speed to a random integer between 5 and 15.
         #   Use instance variables:   screen  x  y  speed.
-        pass
+        self.screen = screen
+        self.x = x
+        self.y = y
+        self.speed = random.randint(5,15)
 
     def move(self):
         """ Move the self.y value of the Raindrop down the screen (y increase) at the self.speed. """
@@ -29,9 +32,10 @@ class Raindrop:
 
     def draw(self):
         """ Draws this sprite onto the screen. """
-        # TODO 9: Draw a vertical line that is 5 pixels long, 2 pixels thick,
+        # Done 9: Draw a vertical line that is 5 pixels long, 2 pixels thick,
         #      from the current position of this Raindrop (use either a black or blue color).
-        pass
+        pygame.draw.line(self.screen, (0, 0, 128), (self.x, self.y),(self.x, self.y + 5), 2)
+        #^self refers to the instance, no longer has reference to original screen, only the screen saved in the self.screen variable in constructor
 
 
 class Hero:
@@ -98,7 +102,8 @@ def main():
     # Done 2: Make a Clock
     clock = pygame.time.Clock()
 
-    # TODO 7: As a temporary test, make a new Raindrop called test_drop at x=320 y=10
+    # Done 7: As a temporary test, make a new Raindrop called test_drop at x=320 y=10
+    test_drop = Raindrop(screen, 320, 10)
     # TODO 15: Make a Hero, named mike, with appropriate images, starting at position x=200 y=400.
     # TODO 15: Make a Hero, named alyssa, with appropriate images, starting at position x=700 y=400.
     # TODO 23: Make a Cloud, named cloud, with appropriate images, starting at position x=300 y=50.
@@ -120,14 +125,14 @@ def main():
         # DISCUSS: If you want something to happen once per key press, put it in the events loop above
         #          If you want something to continually happen while holding the key, put it after the events loop.
 
-        # TODO 5: Inside the game loop, draw the screen (fill with white)
+        # Done 5: Inside the game loop, draw the screen (fill with white)
         screen.fill((255,255,255))
 
         # --- begin area of test_drop code that will be removed later
         # TODO 12: As a temporary test, move test_drop
         # TODO 14: As a temporary test, check if test_drop is off screen, if so reset the y position to 10
         # TODO 10: As a temporary test, draw test_drop
-
+        test_drop.draw()
         # TODO 20: As a temporary test, check if test_drop is hitting Mike (or Alyssa), if so set their last_hit_time
         # TODO 22: Remove the code that reset the y of the test_drop when off_screen()
         #          Instead reset the test_drop y to 10 when mike is hit, additionally set the x to 750
