@@ -5,9 +5,10 @@ import random  # Note this!
 
 
 class Raindrop:
-    def __init__(self, screen, x, y):
+    def __init__(self, screen: pygame.Surface, x, y):
         #^ __init__ is a constructor, which is a special method that is called when an object is created. It initializes the object's attributes. In this case, it initializes a Raindrop object with its screen, x and y position, and speed.
         #^constructor, passes in self because it is a method of the class, and screen, x, y because those are needed to create a raindrop
+        #: allows you to define the variable
         """ Creates a Raindrop sprite that travels down at a random speed. """
         # Done 8: Initialize this Raindrop, as follows:
         #     - Store the screen.
@@ -21,14 +22,14 @@ class Raindrop:
 
     def move(self):
         """ Move the self.y value of the Raindrop down the screen (y increase) at the self.speed. """
-        # TODO 11: Change the  y  position of this Raindrop by its speed.
-        pass
+        # Done 11: Change the  y  position of this Raindrop by its speed.
+        self.y += self.speed
 
     def off_screen(self):
         """ Returns true if the Raindrop y value is not shown on the screen, otherwise false. """
         # Note: this will be used for testing, but not used in the final version of the code for the sake of simplicity.
-        # TODO 13: Return  True  if the  y  position of this Raindrop is greater than 800.
-        pass
+        # Done 13: Return  True  if the  y  position of this Raindrop is greater than 800.
+        return self.y > self.screen.get_height()
 
     def draw(self):
         """ Draws this sprite onto the screen. """
@@ -129,8 +130,12 @@ def main():
         screen.fill((255,255,255))
 
         # --- begin area of test_drop code that will be removed later
-        # TODO 12: As a temporary test, move test_drop
-        # TODO 14: As a temporary test, check if test_drop is off screen, if so reset the y position to 10
+        # Done 12: As a temporary test, move test_drop
+        test_drop.move()
+        if test_drop.off_screen():
+            test_drop.y = 10
+        test_drop.draw()
+        # Done 14: As a temporary test, check if test_drop is off screen, if so reset the y position to 10
         # TODO 10: As a temporary test, draw test_drop
         test_drop.draw()
         # TODO 20: As a temporary test, check if test_drop is hitting Mike (or Alyssa), if so set their last_hit_time
