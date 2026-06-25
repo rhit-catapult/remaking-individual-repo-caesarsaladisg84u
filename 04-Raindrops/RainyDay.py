@@ -6,6 +6,8 @@ import random  # Note this!
 
 class Raindrop:
     def __init__(self, screen, x, y):
+        #^ __init__ is a constructor, which is a special method that is called when an object is created. It initializes the object's attributes. In this case, it initializes a Raindrop object with its screen, x and y position, and speed.
+        #^constructor, passes in self because it is a method of the class, and screen, x, y because those are needed to create a raindrop
         """ Creates a Raindrop sprite that travels down at a random speed. """
         # TODO 8: Initialize this Raindrop, as follows:
         #     - Store the screen.
@@ -88,16 +90,26 @@ class Cloud:
 
 def main():
     """ Main game loop that creates the sprite objects, controls interactions, and draw the screen. """
-    # TODO 1: Initialize the game, display a caption, and set   screen   to a 1000x600 Screen.
+    # Done 1: Initialize the game, display a caption, and set   screen   to a 1000x600 Screen.
+    pygame.init()
+    pygame.display.set_caption("Rainy Day")
+    screen = pygame.display.set_mode((1000, 600))
 
-    # TODO 2: Make a Clock
+    # Done 2: Make a Clock
+    clock = pygame.time.Clock()
+
     # TODO 7: As a temporary test, make a new Raindrop called test_drop at x=320 y=10
     # TODO 15: Make a Hero, named mike, with appropriate images, starting at position x=200 y=400.
     # TODO 15: Make a Hero, named alyssa, with appropriate images, starting at position x=700 y=400.
     # TODO 23: Make a Cloud, named cloud, with appropriate images, starting at position x=300 y=50.
-
-    # TODO 3: Enter the game loop, with a clock tick of 60 (or so) at each iteration.
-        # TODO 4:   Make the pygame.QUIT event stop the game.
+    while True:
+        clock.tick(60)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+        
+    # Done 3: Enter the game loop, with a clock tick of 60 (or so) at each iteration.
+        # Done 4:   Make the pygame.QUIT event stop the game.
 
         # TODO 27: Inside the game loop (AFTER the events loop above), get the list of keys that are currently pressed.
         #     Arrange so that the Cloud moves:
@@ -109,6 +121,7 @@ def main():
         #          If you want something to continually happen while holding the key, put it after the events loop.
 
         # TODO 5: Inside the game loop, draw the screen (fill with white)
+        screen.fill((255,255,255))
 
         # --- begin area of test_drop code that will be removed later
         # TODO 12: As a temporary test, move test_drop
@@ -133,8 +146,10 @@ def main():
 
         # TODO 18: Draw the Heroes (Mike and Alyssa)
 
-        # TODO 6: Update the display and remove the pass statement below
-    pass
+        # Done 6: Update the display and remove the pass statement below
+        pygame.display.update()
+    #pass
 
 
-# TODO 0: Call main.
+# Done 0: Call main.
+main()
