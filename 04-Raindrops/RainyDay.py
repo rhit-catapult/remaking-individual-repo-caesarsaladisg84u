@@ -115,7 +115,7 @@ def main():
     clock = pygame.time.Clock()
 
     # Done 7: As a temporary test, make a new Raindrop called test_drop at x=320 y=10
-    test_drop = Raindrop(screen, 320, 10)
+    # test_drop = Raindrop(screen, 320, 10)
     # Done 15: Make a Hero, named mike, with appropriate images, starting at position x=200 y=400.
     mike = Hero(screen, 200, 400, "Mike_umbrella.png", "Mike.png")
     # Done 15: Make a Hero, named alyssa, with appropriate images, starting at position x=700 y=400.
@@ -130,7 +130,7 @@ def main():
     # Done 3: Enter the game loop, with a clock tick of 60 (or so) at each iteration.
         # Done 4:   Make the pygame.QUIT event stop the game.
 
-        # TODO 27: Inside the game loop (AFTER the events loop above), get the list of keys that are currently pressed.
+        # Done 27: Inside the game loop (AFTER the events loop above), get the list of keys that are currently pressed.
         #     Arrange so that the Cloud moves:
         #       5 pixels (or 10 pixels) to the right if the Right Arrow key (pygame.K_RIGHT) is pressed.
         #       5 pixels (or 10 pixels) to the left  if the Left  Arrow key (pygame.K_LEFT)  is pressed.
@@ -144,23 +144,23 @@ def main():
 
         # --- begin area of test_drop code that will be removed later
         # Done 12: As a temporary test, move test_drop
-        test_drop.move()
-        if test_drop.off_screen():
-            test_drop.y = 10
-        test_drop.draw()
+        # test_drop.move()
+        # if test_drop.off_screen():
+        #     test_drop.y = 10
+        # test_drop.draw()
         # Done 14: As a temporary test, check if test_drop is off screen, if so reset the y position to 10
         # Done 10: As a temporary test, draw test_drop
-        test_drop.draw()
+        # test_drop.draw()
         # Done 20: As a temporary test, check if test_drop is hitting Mike (or Alyssa), if so set their last_hit_time
-        if mike.hit_by(test_drop):
-            mike.last_hit_time = time.time()
-            test_drop.x = 700
-            test_drop.y= 10
-        elif alyssa.hit_by(test_drop):
-            alyssa.last_hit_time = time.time()
-            test_drop.x = 200
-            test_drop.y= 10
-        # TODO 22: Remove the code that reset the y of the test_drop when off_screen()
+        # if mike.hit_by(test_drop):
+        #     mike.last_hit_time = time.time()
+        #     test_drop.x = 700
+        #     test_drop.y= 10
+        # elif alyssa.hit_by(test_drop):
+        #     alyssa.last_hit_time = time.time()
+        #     test_drop.x = 200
+        #     test_drop.y= 10
+        # Done 22: Remove the code that reset the y of the test_drop when off_screen()
         #          Instead reset the test_drop y to 10 when mike is hit, additionally set the x to 750
         #          Then add similar code to alyssa that sets her last_hit_time and moves the test_drop to 10 320
         # --- end area of test_drop code that will be removed later
